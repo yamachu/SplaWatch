@@ -1,0 +1,7 @@
+.DS_Store
+.python-version
+.vs/
+.vscode/
+/node_modules/
+/src/cs/bin/
+/src/cs/obj/
