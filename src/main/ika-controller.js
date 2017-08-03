@@ -3,7 +3,7 @@
 const {ipcMain} = require('electron');
 const {session} = require('electron');
 const path = require('path');
-const edge = require('edge');
+const edge = require('@yamachu/edge');
 
 let edgeInitializer = edge.func({
     assemblyFile: path.join(process.env.EDGE_APP_ROOT, 'IkaLib.dll'),

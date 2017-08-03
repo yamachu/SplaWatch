@@ -14,6 +14,6 @@
     "electron-rebuild": "^1.5.11"
   },
   "dependencies": {
-    "edge": "git+https://github.com/yamachu/edge.git#feature/support_new_version"
+    "@yamachu/edge": "^8.2.4"
   }
 }
