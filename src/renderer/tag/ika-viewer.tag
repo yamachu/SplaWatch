@@ -3,11 +3,18 @@
     <script>
 
     this.webviewReady = false;
+    this.iksmInitialized = false;
     this.on('mount', () => {
         this.root.querySelector('#ika-webview').addEventListener('dom-ready', function _ready(e) {
             this.webviewReady = true;
             this.root.querySelector('#ika-webview').removeEventListener('dom-ready', _ready);
         }.bind(this));
+
+        this.root.querySelector('#ika-webview').addEventListener('did-navigate', (url) => {
+            if (url.url.indexOf('/renderer/dummy.html') != -1 && this.iksmInitialized) {
+                this.root.querySelector('#ika-webview').loadURL('https://app.splatoon2.nintendo.net/');
+            }
+        })
     });
 
     this.readyWaiter = undefined;
@@ -19,6 +26,7 @@
                 loadSplaWeb(own);
                 return;
             }
+            own.iksmInitialized = true;
             own.root.querySelector('#ika-webview').loadURL('https://app.splatoon2.nintendo.net/');
         }, 500);
     };
